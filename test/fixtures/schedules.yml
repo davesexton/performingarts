@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_id: 1
+  venue_id: 1
+  age_group_id: 1
+  start_time: MyString
+  end_time: MyString
+
+two:
+  course_id: 1
+  venue_id: 1
+  age_group_id: 1
+  start_time: MyString
+  end_time: MyString

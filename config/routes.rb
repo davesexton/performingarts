@@ -1,4 +1,30 @@
 Performingarts::Application.routes.draw do
+  get "classes/index"
+
+  resources :schedules
+
+
+  resources :courses
+
+
+  resources :age_groups
+
+
+  resources :venues
+
+
+  resources :costs
+
+
+  get "our_tutors/index"
+
+  resources :tutors
+
+
+  get "home/index"
+
+  root :to => 'home#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
