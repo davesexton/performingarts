@@ -14,8 +14,15 @@
 /log/*.log
 /tmp
 
+# Ignore files containing sensitive info
 config/config.yml
 config/database.yml
+
+# Ignore all editor temp files
 *~
 *.*~
 *.swp
+
+# Ignore user updateable image files
+/public/images/tutors/*.jpg
+/public/images/tutor_thumbnails/*.jpg
