@@ -4,7 +4,14 @@
   <b>Name:</b>
   <%= @age_group.name %>
 </p>
-
+<p>
+  <b>Age from:</b>
+  <%= @age_group.from_age %>
+</p>
+<p>
+  <b>Age to:</b>
+  <%= @age_group.to_age %>
+</p>
 
 <%= link_to 'Edit', edit_age_group_path(@age_group) %> |
 <%= link_to 'Back', age_groups_path %>

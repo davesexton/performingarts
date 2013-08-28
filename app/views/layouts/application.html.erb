@@ -5,10 +5,42 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="author" content="Dave Sexton">
 </head>
-<body>
-
-<%= yield %>
+<body class="<%= controller.controller_name  %>">
+<div id="container" class="container">
+<header>
+  <nav>
+    <ul>
+      <li>
+        <%= link_to_unless controller.controller_name == 'home',
+                           'Home',
+                           '/' %>
+      </li>
+      <li> | </li>
+      <li>
+        <%= link_to_unless controller.controller_name == 'our_tutors',
+                           'Our Tutors',
+                           '/our_tutors' %>
+      </li>
+      <li> | </li>
+      <li>
+        <%= link_to_unless controller.controller_name == 'classes',
+                           'Classes',
+                           '/classes' %>
+      </li>
+      <li>
+      </li>
+    </ul>
+  </nav>
+</header>
+<section id="main">
+  <%= yield %>
+</section>
+<footer>
+<p>Copyright© Carmel Thomas Performing Arts 2010 All Rights Reserved</p>
+</footer>
+</div>
 
 </body>
 </html>

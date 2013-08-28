@@ -12,8 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label 'Name' %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'Age from' %><br />
+    <%= f.text_field :from_age %>
+  </div>
+  <div class="field">
+    <%= f.label 'Age to' %><br />
+    <%= f.text_field :to_age %>
   </div>
   <div class="actions">
     <%= f.submit %>

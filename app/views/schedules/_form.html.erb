@@ -10,26 +10,40 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :age_group_id %><br />
+    <%= f.select(:age_group_id,
+                 options_from_collection_for_select(AgeGroup.all,
+                                                    :id,
+                                                    :name,
+                                                    f.object.age_group_id),
+                  {:include_blank => true})  %>
+  </div>
   <div class="field">
     <%= f.label :course_id %><br />
-    <%= f.number_field :course_id %>
+    <%= f.select(:course_id,
+                 options_from_collection_for_select(Course.all,
+                                                    :id,
+                                                    :name,
+                                                    f.object.course_id),
+                 {include_blank: true}) %>
   </div>
   <div class="field">
     <%= f.label :venue_id %><br />
-    <%= f.number_field :venue_id %>
+    <%= f.select(:venue_id,
+                  options_from_collection_for_select(Venue.all,
+                                                     :id,
+                                                     :name,
+                                                     f.object.venue_id),
+                  {include_blank: true}) %>
   </div>
   <div class="field">
-    <%= f.label :age_group_id %><br />
-    <%= f.number_field :age_group_id %>
+    <%= f.label :time_start %><br />
+    <%= f.time_select :time_start, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.text_field :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.text_field :end_time %>
+    <%= f.label :time_end %><br />
+    <%= f.time_select :time_end, include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>

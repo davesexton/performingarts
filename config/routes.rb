@@ -1,27 +1,27 @@
 Performingarts::Application.routes.draw do
-  get "classes/index"
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
 
   resources :schedules
-
-
   resources :courses
-
-
   resources :age_groups
-
-
   resources :venues
-
-
   resources :costs
-
-
-  get "our_tutors/index"
-
   resources :tutors
 
-
+  get "admin/index"
+  get "our_tutors/index"
   get "home/index"
+  get "classes/index"
+
+  match 'admin' => 'admin#index'
+  match 'our_tutors' => 'our_tutors#index'
+  match 'home' => 'home#index'
+  match 'classes' => 'classes#index'
 
   root :to => 'home#index'
 

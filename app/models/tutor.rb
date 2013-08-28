@@ -1,3 +1,3 @@
 class Tutor < ActiveRecord::Base
-  attr_accessible :name, :profile
+  attr_accessible :name, :profile, :role
 end

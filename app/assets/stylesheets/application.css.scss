@@ -1,0 +1,59 @@
+@import 'compass';
+/* @import 'compass/reset'; */
+@import 'blueprint';
+@import 'home';
+@import 'our_tutors';
+@import 'classes';
+
+body {
+  background-image: image-url('background.gif');
+}
+
+.container {
+  @include container;
+  min-height: 500px;
+}
+
+#main {
+  @include prepend(1);
+  @include column(22);
+  @include append(1);
+  @include last();
+  min-height: 500px;
+  padding-top: 10px;
+  background-image: image-url('content_background.png');
+}
+
+nav {
+  position: absolute;
+  left: 350px;
+  top: 18px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      margin-right: 10px;
+    }
+  }
+}
+
+footer {
+  @include column(24);
+  @include last();
+  background-image: image-url('footer_background.png');
+  height: 60px;
+  padding-top: 5px;
+  text-align: center;
+  color: #0D5151;
+}
+
+header {
+  @include column(23);
+  @include append(1);
+  @include last;
+  position: relative;
+  background-image: image-url('header_background.png');
+  height: 220px;
+}

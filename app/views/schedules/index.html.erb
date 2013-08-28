@@ -1,25 +1,23 @@
-<h1>Listing schedules</h1>
+<h1>Course Schedule</h1>
 
 <table>
   <tr>
+    <th>Age group</th>
     <th>Course</th>
     <th>Venue</th>
-    <th>Age group</th>
     <th>Start time</th>
     <th>End time</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @schedules.each do |schedule| %>
   <tr>
-    <td><%= schedule.course_id %></td>
-    <td><%= schedule.venue_id %></td>
-    <td><%= schedule.age_group_id %></td>
-    <td><%= schedule.start_time %></td>
-    <td><%= schedule.end_time %></td>
-    <td><%= link_to 'Show', schedule %></td>
+    <td><%= schedule.age_group.name unless schedule.age_group.blank? %></td>
+    <td><%= schedule.course.name unless schedule.course.blank? %></td>
+    <td><%= schedule.venue.name unless schedule.venue.blank? %></td>
+    <td><%= schedule.time_start.to_formatted_s(:time) %></td>
+    <td><%= schedule.time_end.to_formatted_s(:time) %></td>
     <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
     <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -28,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Schedule', new_schedule_path %>
+<%= link_to 'New Course Schedule', new_schedule_path %>
