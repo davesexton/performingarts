@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :password_digest
 
+  include Backup
+
   validates :name,
     presence: true,
     uniqueness: true,

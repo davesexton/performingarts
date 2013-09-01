@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Performing Arts</title>
+  <title>CTPA<%= ' - ' + @title unless @title == nil %></title>
+    <% if @description %>
+    <meta name="description" content="<%= @description %>">
+    <meta name="keywords"
+          content="performing arts,child performers,child actors,child singers,child dancers">
+  <% end %>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -29,8 +35,14 @@
                            'Classes',
                            '/classes' %>
       </li>
+      <li> | </li>
       <li>
+        <%= link_to_unless controller.controller_name == 'gallery',
+                           'Gallery',
+                           '/gallery' %>
       </li>
+
+
     </ul>
   </nav>
 </header>

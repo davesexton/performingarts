@@ -12,16 +12,20 @@ Performingarts::Application.routes.draw do
   resources :venues
   resources :costs
   resources :tutors
+  resources :news_items
+  resources :questions
 
   get "admin/index"
-  get "our_tutors/index"
   get "home/index"
   get "classes/index"
+  get "our_tutors/index"
+  get "gallery/index"
 
   match 'admin' => 'admin#index'
-  match 'our_tutors' => 'our_tutors#index'
   match 'home' => 'home#index'
   match 'classes' => 'classes#index'
+  match 'our_tutors' => 'our_tutors#index'
+  match 'gallery' => 'gallery#index'
 
   root :to => 'home#index'
 
