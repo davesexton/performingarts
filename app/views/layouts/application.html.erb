@@ -41,7 +41,12 @@
                            'Gallery',
                            '/gallery' %>
       </li>
-
+      <li> | </li>
+      <li>
+        <%= link_to_unless controller.controller_name == 'faqs',
+                           'FAQs',
+                           '/faqs' %>
+      </li>
 
     </ul>
   </nav>

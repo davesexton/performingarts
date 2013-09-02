@@ -1,5 +1,6 @@
 Performingarts::Application.routes.draw do
 
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -20,12 +21,14 @@ Performingarts::Application.routes.draw do
   get "classes/index"
   get "our_tutors/index"
   get "gallery/index"
+  get "faqs/index"
 
   match 'admin' => 'admin#index'
   match 'home' => 'home#index'
   match 'classes' => 'classes#index'
   match 'our_tutors' => 'our_tutors#index'
   match 'gallery' => 'gallery#index'
+  match 'faqs' => 'faqs#index'
 
   root :to => 'home#index'
 

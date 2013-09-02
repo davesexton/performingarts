@@ -1,4 +1,4 @@
-class GalleryController < ApplicationController
+class FaqsController < ApplicationController
 
   skip_before_filter :authorize
 
