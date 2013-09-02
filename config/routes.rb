@@ -29,6 +29,7 @@ Performingarts::Application.routes.draw do
   match 'our_tutors' => 'our_tutors#index'
   match 'gallery' => 'gallery#index'
   match 'faqs' => 'faqs#index'
+  match 'backup' => 'admin#backup'
 
   root :to => 'home#index'
 
