@@ -4,5 +4,6 @@ class ClassesController < ApplicationController
 
   def index
     @age_groups = AgeGroup.all
+    @costs = Cost.all
   end
 end

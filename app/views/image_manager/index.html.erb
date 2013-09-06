@@ -1,0 +1,31 @@
+<% @title = 'Image Manager' %>
+<h2>Image Manager</h2>
+<p>Use the file selector below to pick an image you want to upload, make
+   sure that use the drop-down to select which category you want the image
+   displayed under. To remove an image click the link below it from the display below.</p>
+<div>
+  <%= form_tag({action: :upload}, multipart: true) do %>
+    <%= label_tag 'picture', 'Select image file: ' %>
+    <%= file_field_tag 'picture', size: 5 %>
+    <br />
+
+    <%= submit_tag 'Upload Image' %>
+  <% end %>
+</div>
+
+<div id="gallery">
+  <% @gallery_images.each do |img| %>
+    <div class="imgHolder">
+
+      <%= link_to(image_tag(img[:thumb_path],
+                            {size: '75x75'}),
+                            img[:image_path],
+                            class: 'lightbox', rel: 'gallery') %>
+
+      <%= link_to 'Delete',
+                   image_manager_path(image_path: img[:image_path]),
+                   method: :delete,
+                   data: { confirm: 'Are you sure?'} %>
+    </div>
+  <% end %>
+</div>

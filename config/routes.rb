@@ -1,6 +1,5 @@
 Performingarts::Application.routes.draw do
 
-
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
@@ -16,20 +15,15 @@ Performingarts::Application.routes.draw do
   resources :news_items
   resources :questions
 
-  get "admin/index"
-  get "home/index"
-  get "classes/index"
-  get "our_tutors/index"
-  get "gallery/index"
-  get "faqs/index"
-
-  match 'admin' => 'admin#index'
-  match 'home' => 'home#index'
-  match 'classes' => 'classes#index'
-  match 'our_tutors' => 'our_tutors#index'
-  match 'gallery' => 'gallery#index'
-  match 'faqs' => 'faqs#index'
-  match 'backup' => 'admin#backup'
+  get "admin" => "admin#index"
+  get "home" => "home#index"
+  get "classes" => "classes#index"
+  get "our_tutors" => "our_tutors#index"
+  get "gallery" => "gallery#index"
+  get "faqs" => "faqs#index"
+  get "image_manager" => "image_manager#index"
+  post "image_manager" => "image_manager#upload"
+  delete "image_manager" => "image_manager#delete"
 
   root :to => 'home#index'
 

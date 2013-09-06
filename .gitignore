@@ -24,5 +24,7 @@ config/database.yml
 *.swp
 
 # Ignore user updateable image files
-/public/images/tutors/*.jpg
+/public/images/tutor_images/*.jpg
 /public/images/tutor_thumbnails/*.jpg
+/public/images/gallery_images/*.jpg
+/public/images/gallery_thumbnails/*.jpg

@@ -1,6 +1,7 @@
 <% @title = 'Home' %>
 <% @description = 'home' %>
 
+
 <h1>Classes#index</h1>
 
 <% @age_groups.in_groups(2).transpose.each do |age_group_group| %>
@@ -30,3 +31,9 @@
 
   </div>
 <% end %>
+
+<% @costs.each do |cost| %>
+<%= cost.description %>
+
+<% end %>
+
