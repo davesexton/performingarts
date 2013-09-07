@@ -5,3 +5,7 @@
 $ ->
   if $(".gallery").count > 0
     $("#gallery a").lightBox()
+
+$ ->
+  if $('.gallery').length > 0
+    $('.lightbox').lightbox()

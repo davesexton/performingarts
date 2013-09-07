@@ -4,3 +4,15 @@
 <h1>Gallery#index</h1>
 <p>Find me in app/views/gallery/index.html.erb</p>
 
+<div id="gallery">
+  <% @gallery_images.each do |img| %>
+    <div class="imgHolder">
+
+      <%= link_to(image_tag(img[:thumb_path],
+                            {size: '75x75'}),
+                            img[:image_path],
+                            class: 'lightbox', rel: 'gallery') %>
+
+    </div>
+  <% end %>
+</div>

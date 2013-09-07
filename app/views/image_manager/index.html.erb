@@ -1,8 +1,7 @@
 <% @title = 'Image Manager' %>
 <h2>Image Manager</h2>
-<p>Use the file selector below to pick an image you want to upload, make
-   sure that use the drop-down to select which category you want the image
-   displayed under. To remove an image click the link below it from the display below.</p>
+<p>Use the file selector below to pick an image you want to upload,
+   to remove an image click the dlete link below it.</p>
 <div>
   <%= form_tag({action: :upload}, multipart: true) do %>
     <%= label_tag 'picture', 'Select image file: ' %>

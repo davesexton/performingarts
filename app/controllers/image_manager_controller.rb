@@ -8,31 +8,34 @@ class ImageManagerController < ApplicationController
     @gallery_images = get_gallery_images
 
     if params[:picture]
+
       img = params[:picture]
+
       if img.content_type  =~ /^image\/\w*(jpeg|png)\w*/
         require 'RMagick'
-        require 'fileutils'
+        #require 'fileutils'
 
         img.rewind
         img = Magick::Image::from_blob(img.read).first
         path = Rails.root.join('public','images','gallery_images')
         id = Dir[path.join('*.jpg')].count + 1
+        id = DateTime.now.to_s(:number)
 
         img.change_geometry!('640x480') { |cols, rows, img|
           img.resize!(cols, rows)
         }
         img.write(path.join("#{id}.jpg"))
-        flash.now[:notice] = 'File uploaded'
+        flash[:notice] = 'File uploaded'
 
       else
 
-        flash.now[:alert] = 'Only image file files allowed, file upload cancelled'
+        flash[:notice] = 'Only image file files allowed, file upload cancelled'
 
       end
 
     else
 
-      flash.now[:alert] = 'No category or file selected, file upload cancelled'
+      flash[:notice] = 'No file selected, file upload cancelled'
 
     end
 
