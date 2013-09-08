@@ -1,5 +1,5 @@
 <% @title = 'Image Manager' %>
-<h2>Image Manager</h2>
+<h1>Gallery Manager</h1>
 <p>Use the file selector below to pick an image you want to upload,
    to remove an image click the dlete link below it.</p>
 <div>
@@ -17,7 +17,7 @@
     <div class="imgHolder">
 
       <%= link_to(image_tag(img[:thumb_path],
-                            {size: '75x75'}),
+                            {size: '125x125'}),
                             img[:image_path],
                             class: 'lightbox', rel: 'gallery') %>
 

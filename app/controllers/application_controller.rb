@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     require 'RMagick'
     thumb = path.sub('_images', '_thumbnails')
     img = Magick::Image::read(path).first
-    img = img.crop_resized!(75, 75, Magick::NorthGravity)
+    img = img.crop_resized!(125, 125, Magick::NorthGravity)
     img.write(thumb)
 
   end

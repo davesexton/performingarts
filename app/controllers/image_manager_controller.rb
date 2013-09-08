@@ -13,18 +13,16 @@ class ImageManagerController < ApplicationController
 
       if img.content_type  =~ /^image\/\w*(jpeg|png)\w*/
         require 'RMagick'
-        #require 'fileutils'
 
         img.rewind
         img = Magick::Image::from_blob(img.read).first
         path = Rails.root.join('public','images','gallery_images')
-        id = Dir[path.join('*.jpg')].count + 1
-        id = DateTime.now.to_s(:number)
+        file_name = DateTime.now.to_s(:number)
 
         img.change_geometry!('640x480') { |cols, rows, img|
           img.resize!(cols, rows)
         }
-        img.write(path.join("#{id}.jpg"))
+        img.write(path.join("#{file_name}.jpg"))
         flash[:notice] = 'File uploaded'
 
       else

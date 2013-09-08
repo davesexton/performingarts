@@ -28,6 +28,7 @@ body {
   background-color: #000;
   color: #ffffff;
   font-size: 150%;
+  margin-size: 0px;
   div {
     margin-top: 10px;
     color: #ffffff;
@@ -79,12 +80,30 @@ header {
 }
 .image_manager, .gallery {
   .imgHolder {
-    width: 80px;
+    text-align: center;
     position: relative;
     float: left;
-    text-align: center;
-    padding: 5px;
-    margin: 1px;
     background-color: $background_color;
+    margin: 1px;
+    width: 131px;
+    a {
+      border: 0px;
+      display: block;
+    }
+    img {
+      border: {
+        style: solid;
+        width: 3px;
+        color: $background_color;
+      }
+      width: 125px;
+      height: 125px;
+    }
   }
+}
+.image_manager {
+  height: 129px;
+}
+.gallery {
+  max-height: 127px;
 }

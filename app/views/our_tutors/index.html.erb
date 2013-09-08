@@ -4,13 +4,20 @@
 <h1>OurTutors#index</h1>
 
 <% @tutors.each do |tutor|  %>
-<div>
-<%= tutor.id %>
-  <h3>
-    <%= tutor.name %> (<%= tutor.role %>)
-  </h3>
   <div>
-    <%= tutor.profile %>
+    <div>
+      <%= link_to(image_tag(tutor.thumb_path,
+                            {widrh: '125', title: tutor.name, alt: tutor.name}),
+                            tutor.image_path,
+                            {class: 'lightbox'}) if tutor.thumb_path %>
+    </div>
+    <div>
+      <h3>
+        <%= tutor.name %> (<%= tutor.role %>)
+      </h3>
+    </div>
+    <div>
+      <%= tutor.profile %>
+    </div>
   </div>
-</div>
 <% end %>
