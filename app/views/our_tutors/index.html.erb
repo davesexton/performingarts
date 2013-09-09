@@ -1,13 +1,20 @@
 <% @title = 'Our Tutors' %>
 <% @description = 'Our Tutors' %>
 
-<h1>OurTutors#index</h1>
-
+<h1>Our Tutors</h1>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer in mi a mauris
+  ornare sagittis. Suspendisse potenti. Suspendisse dapibus dignissim dolor. Nam
+  sapien tellus, tempus et, tempus ac, tincidunt in, arcu. Duis dictum. Proin magna
+  nulla, pellentesque non, commodo et, iaculis sit amet, mi. Mauris condimentum
+  massa ut metus. Donec viverra, sapien mattis rutrum tristique, lacus eros semper
+  tellus, et molestie nisi sapien eu massa
+</p>
 <% @tutors.each do |tutor|  %>
   <div>
-    <div>
+    <div class="tutor_image">
       <%= link_to(image_tag(tutor.thumb_path,
-                            {widrh: '125', title: tutor.name, alt: tutor.name}),
+                            {width: '125', title: tutor.name, alt: tutor.name}),
                             tutor.image_path,
                             {class: 'lightbox'}) if tutor.thumb_path %>
     </div>
