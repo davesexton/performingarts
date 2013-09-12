@@ -12,34 +12,46 @@
   tristique, lacus eros semper tellus, et molestie nisi sapien eu massa
 </p>
 <% @age_groups.in_groups(2).transpose.each do |age_group_group| %>
-
-<% age_group_group.each do |age_group|  %>
-  <div>
-    <table>
-      <tr>
-        <th>
-  <%= age_group.header  %>
-        </th>
-      </tr>
-<% age_group.schedules.each do |schedule| %>
-      <tr>
-        <td>
-          <%= schedule.time_start.to_formatted_s(:time)  %> -
-          <%= schedule.time_end.to_formatted_s(:time)  %>
-          <%= schedule.course.name  %>
-          <%= " (#{schedule.venue.name})" unless schedule.venue.blank? %>
-        </td>
-      </tr>
+  <% age_group_group.each do |age_group|  %>
+<div>
+  <table>
+    <tr>
+      <th><%= age_group.header  %></th>
+    </tr>
+    <% age_group.schedules.each do |schedule| %>
+    <tr>
+      <td>
+        <%= schedule.time_start.to_formatted_s(:time)  %> -
+        <%= schedule.time_end.to_formatted_s(:time)  %>
+        <%= schedule.course.name  %>
+        <%= " (#{schedule.venue.name})" unless schedule.venue.blank? %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
   <% end %>
-     </table>
-  </td>
-
-  <% end %>
-
-  </div>
+</div>
 <% end %>
 
+<div>
+<table>
+  <tr>
+    <th></th>
+    <th>Half Term Price<br />(£)</th>
+    <th>Full Term Price<br />(£)</th>
+  </tr>
 <% @costs.each do |cost| %>
-<%= cost.description %>
-
+  <tr>
+    <td>
+     <%= cost.description %>
+    </td>
+    <td class="number">
+     <%= cost.half_term_price %>
+    </td>
+    <td class="number">
+     <%= cost.full_term_price %>
+    </td>
+  </tr>
 <% end %>
+</table>
+</div>
