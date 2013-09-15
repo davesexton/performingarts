@@ -6,13 +6,30 @@
 @import 'classes';
 @import 'lightbox';
 
-$text_color: #66bcbd;
+/* $text_color: #66bcbd; */
 $background_color: #099d9d;
+$text_color: #0D5151;
+$highlight_color: #AA1B84;
+$dark_color: #0D5151;
 
 body {
   background-image: image-url('background.gif');
 }
-
+p {
+  color: $text_color;
+}
+td {
+  color: $text_color;
+}
+h1 {
+  color: $highlight_color;
+}
+h2 {
+  color: $highlight_color;
+}
+h3 {
+  color: $dark_color;
+}
 .container {
   @include container;
   min-height: 500px;

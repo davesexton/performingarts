@@ -12,6 +12,6 @@
   tristique, lacus eros semper tellus, et molestie nisi sapien eu massa
 </p>
 <% @news_items.each do |news_item| %>
-  <h1><%= news_item.heading %></h1>
-  <p><%=  news_item.body %> </p>
+  <h2><%= news_item.heading %></h2>
+  <p><%=  news_item.body_formatted.html_safe %> </p>
 <% end %>

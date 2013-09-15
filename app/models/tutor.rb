@@ -7,6 +7,11 @@ class Tutor < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def profile_formatted
+    str = profile.gsub(/(\r|\n)+/, '</p><p>')
+    "<p>#{str}</p>"
+  end
+
   def image_upload=(img)
 
     if id && img
