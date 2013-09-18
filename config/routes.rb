@@ -1,5 +1,7 @@
 Performingarts::Application.routes.draw do
 
+  get "news/index"
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
