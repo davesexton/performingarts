@@ -24,7 +24,7 @@ end
 
 gem 'jquery-rails'
 
-group :development do
+group :development, :production do
   gem 'wirble'
   gem 'hirb'
 end

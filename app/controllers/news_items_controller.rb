@@ -44,11 +44,14 @@ class NewsItemsController < ApplicationController
 
     respond_to do |format|
       if @news_item.save
-        format.html { redirect_to @news_item, notice: 'News item was successfully created.' }
-        format.json { render json: @news_item, status: :created, location: @news_item }
+        format.html { redirect_to news_item_path,
+                      notice: 'News item was successfully created.' }
+        format.json { render json: @news_item,
+                      status: :created, location: @news_item }
       else
         format.html { render action: "new" }
-        format.json { render json: @news_item.errors, status: :unprocessable_entity }
+        format.json { render json: @news_item.errors,
+                      status: :unprocessable_entity }
       end
     end
   end
@@ -60,11 +63,13 @@ class NewsItemsController < ApplicationController
 
     respond_to do |format|
       if @news_item.update_attributes(params[:news_item])
-        format.html { redirect_to @news_item, notice: 'News item was successfully updated.' }
+        format.html { redirect_to news_item_path,
+                      notice: 'News item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @news_item.errors, status: :unprocessable_entity }
+        format.json { render json: @news_item.errors,
+                      status: :unprocessable_entity }
       end
     end
   end

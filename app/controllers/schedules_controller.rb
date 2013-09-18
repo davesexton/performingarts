@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.all.order(:start_time)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class SchedulesController < ApplicationController
       if @schedule.save
         format.html { redirect_to schedules_path,
                       notice: 'Schedule was successfully created.' }
-        format.json { render json: @schedule, status: :created, location: @schedule }
+        format.json { render json: schedule_url, status: :created, location: @schedule }
       else
         format.html { render action: "new" }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to schedule_url, notice: 'Schedule was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
