@@ -1,0 +1,12 @@
+%p
+  %b Name: #{@age_group.name}
+
+%p
+  %b Age from: #{@age_group.from_age}
+
+%p
+  %b Age to: #{@age_group.to_age}
+
+= link_to 'Edit', edit_age_group_path(@age_group)
+|
+= link_to 'Back', age_groups_path

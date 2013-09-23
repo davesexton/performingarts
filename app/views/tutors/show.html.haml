@@ -1,0 +1,17 @@
+%p
+  %b Name: #{@tutor.name}
+
+%p
+  %b Role: #{@tutor.role}
+
+%p
+  = link_to(image_tag(@tutor.thumb_path,
+                        {width: '125', title: @tutor.name, alt: @tutor.name}),
+                        @tutor.image_path,
+                        {class: 'lightbox'}) if @tutor.thumb_path
+%p
+  %b Profile: #{@tutor.profile}
+
+= link_to 'Edit', edit_tutor_path(@tutor)
+|
+= link_to 'Back', tutors_path

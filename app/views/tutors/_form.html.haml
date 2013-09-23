@@ -1,0 +1,39 @@
+= form_for(@tutor) do |f|
+  - if @tutor.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@tutor.errors.count, "error")
+        prohibited this tutor from being saved:
+
+      %ul
+        - @tutor.errors.full_messages.each do |msg|
+          %li
+            = msg
+
+  %div.field
+    = f.label :name
+    %br/
+    = f.text_field :name
+
+  %div.field
+    = f.label :role
+    %br/
+    = f.text_field :role
+
+  %div.field
+    = link_to(image_tag(f.object.thumb_path,
+                        {width: '125', title: f.object.name, alt: f.object.name}),
+                        f.object.image_path,
+                        {class: 'lightbox'}) if f.object.thumb_path
+    = f.label :image_upload, 'New upload'
+    %br/
+    = f.file_field :image_upload
+
+  %div.field
+    = f.label :profile
+    %br/
+    = f.text_area :profile
+
+  %div.actions
+    = f.submit
+

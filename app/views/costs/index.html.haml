@@ -1,0 +1,29 @@
+%h1 Listing costs
+
+%table
+  %tr
+    %th Description
+    %th Half term price
+    %th Full term price
+    %th
+    %th
+    %th
+
+  - @costs.each do |cost|
+    %tr
+      %td
+        = cost.description
+      %td
+        = cost.half_term_price
+      %td
+        = cost.full_term_price
+      %td
+        = link_to 'Show', cost
+      %td
+        = link_to 'Edit', edit_cost_path(cost)
+      %td
+        = link_to 'Destroy', cost, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br/
+
+= link_to 'New Cost', new_cost_path

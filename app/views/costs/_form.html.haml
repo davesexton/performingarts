@@ -1,0 +1,28 @@
+= form_for(@cost) do |f|
+  - if @cost.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@cost.errors.count, "error")
+        prohibited this cost from being saved:
+
+      %ul
+        - @cost.errors.full_messages.each do |msg|
+          %li = msg
+
+  %div.field
+    = f.label :description
+    %br/
+    = f.text_field :description
+
+  %div.field
+    = f.label :half_term_price
+    %br/
+    = f.number_field :half_term_price
+
+  %div.field
+    = f.label :full_term_price
+    %br/
+    = f.number_field :full_term_price
+
+  %div.actions
+    = f.submit

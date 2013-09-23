@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all.order(:start_time)
+    @schedules = Schedule.order(:time_start)
 
     respond_to do |format|
       format.html # index.html.erb

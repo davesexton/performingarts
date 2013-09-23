@@ -1,0 +1,34 @@
+%h1 Course Schedule
+
+%table
+  %tr
+    %th Age group
+    %th Course
+    %th Venue
+    %th Start time
+    %th End time
+    %th
+    %th
+
+  - @schedules.each do |schedule|
+    %tr
+      %td
+        = schedule.age_group.name unless schedule.age_group.blank?
+      %td
+        = schedule.course.name unless schedule.course.blank?
+      %td
+        = schedule.venue.name unless schedule.venue.blank?
+      %td
+        = schedule.time_start.to_formatted_s(:time)
+      %td
+        = schedule.time_end.to_formatted_s(:time)
+      %td
+        = link_to 'Edit', edit_schedule_path(schedule)
+      %td
+        = link_to 'Destroy', schedule,
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }
+
+%br /
+
+= link_to 'New Course Schedule', new_schedule_path

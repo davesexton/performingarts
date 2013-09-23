@@ -1,0 +1,11 @@
+%p
+  %b Heading:
+  = @news_item.heading
+
+%p
+  %b>Body:
+  = @news_item.body
+
+= link_to 'Edit', edit_news_item_path(@news_item)
+|
+= link_to 'Back', news_items_path

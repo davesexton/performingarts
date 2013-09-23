@@ -1,0 +1,28 @@
+%h1 Listing tutors
+
+%table
+  %tr
+    %th
+    %th Name
+    %th Role
+    %th
+
+  - @tutors.each do |tutor|
+    %tr
+      %td
+        = link_to(image_tag(tutor.thumb_path,
+                              {width: '75', title: tutor.name, alt: tutor.name}),
+                              tutor.image_path,
+                              {class: 'lightbox'}) if tutor.thumb_path
+
+      %td
+        = link_to tutor.name, edit_tutor_path(tutor)
+      %td
+        = tutor.role
+      %td
+        = link_to 'Destroy', tutor,
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'}
+%br/
+
+= link_to 'New Tutor', new_tutor_path

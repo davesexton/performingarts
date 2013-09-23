@@ -1,0 +1,12 @@
+%p
+  %b Description: #{@cost.description}
+
+%p
+  %b Half term price: #{@cost.half_term_price}
+
+%p
+  %b Full term price: #{@cost.full_term_price}
+
+= link_to 'Edit', edit_cost_path(@cost)
+|
+= link_to 'Back', costs_path

@@ -1,0 +1,29 @@
+%h1 Listing age_groups
+
+%table
+  %tr
+    %th Name
+    %th Age From
+    %th Age To
+    %th
+    %th
+    %th
+
+  - @age_groups.each do |age_group|
+    %tr
+      %td
+        = age_group.name
+      %td
+        = age_group.from_age
+      %td
+        = age_group.to_age
+      %td
+        = link_to 'Show', age_group
+      %td
+        = link_to 'Edit', edit_age_group_path(age_group)
+      %td
+        = link_to 'Destroy', age_group, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br/
+
+= link_to 'New Age group', new_age_group_path

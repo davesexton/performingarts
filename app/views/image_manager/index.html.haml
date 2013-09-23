@@ -1,0 +1,24 @@
+- @title = 'Image Manager'
+%h1 Gallery Manager
+%p
+  Use the file selector below to pick an image you want to upload,
+  to remove an image click the dlete link below it.
+%div
+  = form_tag({action: :upload}, multipart: true) do
+    = label_tag 'picture', 'Select image file: '
+    = file_field_tag 'picture', size: 5
+    %br /
+    = submit_tag 'Upload Image'
+
+%div#gallery
+  - @gallery_images.each do |img|
+    %div.imgHolder
+      = link_to(image_tag(img[:thumb_path], {size: '125x125'}),
+                img[:image_path],
+                class: 'lightbox',
+                rel: 'gallery')
+
+      = link_to 'Delete',
+                image_manager_path(image_path: img[:image_path]),
+                method: :delete,
+                data: { confirm: 'Are you sure?'}
