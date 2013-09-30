@@ -21,6 +21,10 @@
                 'Home', '/'
             %li  |
             %li
+              = link_to_unless controller.controller_name == 'news',
+                'News', '/news'
+            %li  |
+            %li
               = link_to_unless controller.controller_name == 'our_tutors',
                 'Our Tutors', '/our_tutors'
             %li  |
@@ -35,6 +39,10 @@
             %li
               = link_to_unless controller.controller_name == 'faqs',
                 'FAQs', '/faqs'
+            %li  |
+            %li
+              = link_to_unless controller.controller_name == 'contactus',
+                'Contact us', '/contactus'
 
       - if flash[:notice]
         %div#notice

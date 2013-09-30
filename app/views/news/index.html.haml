@@ -1,1 +1,8 @@
+- @title = 'Home'
+- @description = 'home'
+
 %h1 News#index
+
+- @news_items.each do |news_item|
+  %h2 #{news_item.heading}
+  %p #{news_item.body_formatted.html_safe}
