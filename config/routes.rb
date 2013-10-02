@@ -24,11 +24,12 @@ Performingarts::Application.routes.draw do
   get "gallery" => "gallery#index"
   get "faqs" => "faqs#index"
   get "contactus" => "contactus#index"
+  post "contactus" => "contactus#send_message"
   get "image_manager" => "image_manager#index"
   post "image_manager" => "image_manager#upload"
   delete "image_manager" => "image_manager#delete"
 
-  root :to => 'home#index'
+  root to: 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

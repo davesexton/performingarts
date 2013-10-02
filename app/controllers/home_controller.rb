@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @news_items = NewsItem.all
+    #Dir[path].sample(3).each{|i| puts File.basename(i) }
   end
 
 end
